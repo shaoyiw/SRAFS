@@ -1,9 +1,8 @@
-# iCMFormer
-A click-based interactive image segmentation method with cross-modality transformers.
+# SRAFS
 
 This is the official implementation of the paper "Interactive Image Segmentation with Cross-Modality Vision Transformers".
 
-### <p align="center"> Interactive Image Segmentation with Cross-Modality Vision Transformers
+### <p align="center"> Semantic Reweighting and Attention Field Supervision for Interactive Image Segmentation
 <br>
 
 <div align="center">
@@ -19,11 +18,11 @@ This is the official implementation of the paper "Interactive Image Segmentation
 
 ### Abstract
 
-Interactive image segmentation aims to segment the target from the background with the manual guidance, which takes as input multimodal data such as images, clicks, scribbles, polygons, and bounding boxes. Recently, vision transformers have achieved a great success in several downstream visual tasks, and a few efforts have been made to bring this powerful architecture to interactive segmentation task. However, the previous works neglect the relations between two modalities and directly mock the way of processing purely visual information with self-attentions. In this paper, we propose a simple yet effective network for click-based interactive segmentation with cross-modality vision transformers. Cross-modality transformers exploit mutual information to better guide the learning process. The experiments on several benchmarks show that the proposed method achieves superior performance in comparison to the previous state-of-the-art models. In addition, the stability of our method in term of avoiding failure cases shows its potential to be a practical annotation tool.
+In recent years, interactive image segmentation methods have commonly adopted an iterative refinement paradigm, where the predicted mask from the previous iteration is used as guidance to progressively improve subsequent segmentation results. Although some approaches enhance the representation of user interactions by modulating the previous mask, such informative cues are typically fused only at the input layer. As the information propagates deeper into the network, its influence gradually diminishes, making it difficult to continuously guide the learning of high-level semantic features. In addition, existing models often rely on self-attention mechanisms to implicitly infer user intent without explicit supervisory signals, which may result in ambiguous attention maps and lead to increased corrective interactions from the user. To address the limitations of shallow fusion, we design an Adaptive Guided Fusion module that injects modulated corrective signals not only at the input layer but also into intermediate layers of the Transformer backbone, ensuring that user intent actively guides feature learning across multiple semantic depths. Furthermore, to obtain more discriminative feature representations, we introduce an Attention Field Supervision loss that directly regularizes self-attention maps by penalizing spatial overlap between foreground and background attention fields, encouraging the network to learn highly discriminative attention patterns. Extensive experiments on multiple benchmark datasets demonstrate that the proposed Semantic Reweighting and Attention Field Supervision (SRAFS) interactive segmentation model achieves superior performance compared with other state-of-the-art methods.
 
 ### Preparations
 
-PyTorch 1.10.2, Ubuntu 16.4, CUDA 11.3.
+PyTorch 0.9.0, torchvision==0.9.0, torch 1.8.0.
 
 ```
 pip3 install -r requirements.txt
@@ -42,9 +41,9 @@ Before evaluation, please download the datasets and models and configure the pat
 The following script will start validation with the default hyperparameters:
 
 ```
-python scripts/evaluate_model.py NoBRS \
+python scripts/evaluate_model.py CMRefiner-V2 \
 --gpu=0 \
---checkpoint=./weights/icmformer_cocolvis_vit_base.pth \
+--checkpoint=./weights/SRAFS_cocolvis.pth \
 --eval-mode=cvpr \
 --datasets=GrabCut,Berkeley,DAVIS,SBD
 ```
@@ -56,25 +55,10 @@ Before training, please download the pre-trained weights (click to download: [Vi
 Use the following code to train a base model on coco+lvis dataset:
 
 ```
-python train.py ./models/iter_mask/icmformer_plainvit_base448_cocolvis_itermask.py \
---batch-size=24 \
---ngpus=2
+python train.py ./models/segformerB3_S2_cclvs.py \
+--batch-size=6 \
+--ngpus=1
 ```
 
-
-## Citation
-If iCMFormer is helpful for your research, we'd appreciate it if you could cite this paper.
-~~~bibtex
-@InProceedings{Li_2023_ICCV,
-    author    = {Li, Kun and Vosselman, George and Yang, Michael Ying},
-    title     = {Interactive Image Segmentation with Cross-Modality Vision Transformers},
-    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},
-    month     = {October},
-    year      = {2023},
-    pages     = {762-772}
-}
-~~~
-
-
 ## Acknowledgement
-Here, we thank so much for these great works:  [RITM](https://github.com/SamsungLabs/ritm_interactive_segmentation) and [SimpleClick](https://github.com/uncbiag/SimpleClick)
+Here, we thank so much for these great works:  [RITM](https://github.com/SamsungLabs/ritm_interactive_segmentation)
