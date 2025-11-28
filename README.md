@@ -1,20 +1,19 @@
 # SRAFS
 
-This is the official implementation of the paper "Interactive Image Segmentation with Cross-Modality Vision Transformers".
+This is the official implementation of the paper "Semantic Reweighting and Attention Field Supervision for Interactive Image Segmentation".
 
 ### <p align="center"> Semantic Reweighting and Attention Field Supervision for Interactive Image Segmentation
 <br>
 
 <div align="center">
-  Kun&nbsp;Li</a> <b>&middot;</b>
-  George&nbsp;Vosselman</a> <b>&middot;</b>
-  Michael Ying&nbsp;Yang</a>
+  Jianwu&nbsp;Long</a> <b>&middot;</b>
+  Shaoyi&nbsp;wang</a> <b>&middot;</b>
+  Yuanqin&nbsp;Liu</a>
   <br> <br>
-  <a href="https://openaccess.thecvf.com/content/ICCV2023W/NIVT/html/Li_Interactive_Image_Segmentation_with_Cross-Modality_Vision_Transformers_ICCVW_2023_paper.html" target="_blank">Paper</a>
 </div>
 </br>
 
-<div align=center><img src="assets/iCMFormer.png" /></div>
+<div align=center><img src="assets/SRAFS.jpg" /></div>
 
 ### Abstract
 
