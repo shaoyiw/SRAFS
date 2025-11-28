@@ -50,7 +50,7 @@ python scripts/evaluate_model.py CMRefiner-V2 \
 
 ### Training
 
-Before training, please download the pre-trained weights (click to download: [ViT](https://github.com/facebookresearch/mae) and [Swin](https://github.com/microsoft/Swin-Transformer)).
+Before training, please download the pre-trained weights (click to download: [ViT]([https://github.com/facebookresearch/mae](https://drive.google.com/drive/folders/1b7bwrInTW4VLEm27YawHOAMSMikga2Ia)).
 
 Use the following code to train a base model on coco+lvis dataset:
 
