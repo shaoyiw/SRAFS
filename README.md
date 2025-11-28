@@ -13,7 +13,7 @@ This is the official implementation of the paper "Semantic Reweighting and Atten
 </div>
 </br>
 
-<div align=center><img src="assets/SRAFS.jpg" /></div>
+<div align=center><img src="assets/SRAFS.png" /></div>
 
 ### Abstract
 
@@ -49,7 +49,7 @@ python scripts/evaluate_model.py CMRefiner-V2 \
 
 ### Training
 
-Before training, please download the pre-trained weights (click to download: [ViT]([https://github.com/facebookresearch/mae](https://drive.google.com/drive/folders/1b7bwrInTW4VLEm27YawHOAMSMikga2Ia)).
+Before training, please download the pre-trained weights (click to download: [Segformer]((https://drive.google.com/drive/folders/1b7bwrInTW4VLEm27YawHOAMSMikga2Ia)).
 
 Use the following code to train a base model on coco+lvis dataset:
 
