@@ -7,7 +7,7 @@ This is the official implementation of the paper "Semantic Reweighting and Atten
 
 <div align="center">
   Jianwu&nbsp;Long</a> <b>&middot;</b>
-  Shaoyi&nbsp;wang</a> <b>&middot;</b>
+  Shaoyi&nbsp;Wang</a> <b>&middot;</b>
   Yuanqin&nbsp;Liu</a>
   <br> <br>
 </div>
@@ -49,7 +49,7 @@ python scripts/evaluate_model.py CMRefiner-V2 \
 
 ### Training
 
-Before training, please download the pre-trained weights (click to download: [Segformer]((https://drive.google.com/drive/folders/1b7bwrInTW4VLEm27YawHOAMSMikga2Ia)).
+Before training, please download the pre-trained weights (click to download: [Segformer](https://drive.google.com/drive/folders/1b7bwrInTW4VLEm27YawHOAMSMikga2Ia).
 
 Use the following code to train a base model on coco+lvis dataset:
 
